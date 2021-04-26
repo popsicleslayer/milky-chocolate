@@ -123,3 +123,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+# User substitution
+# https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#auth-custom-user
+AUTH_USER_MODEL = 'charity_donation_app.User'
+
+#Login redirect
+LOGIN_REDIRECT_URL = '/'
