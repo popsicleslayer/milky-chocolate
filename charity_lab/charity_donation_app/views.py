@@ -125,8 +125,13 @@ class UserDetail(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         user = self.request.user
         user_donations = Donation.objects.filter(user=user)
+        if self.request.user.is_authenticated:
+            user_name =self.request.user.first_name
+        else:
+            user_name = None
         ctx = {
             'user': user,
+            'user_name': user_name,
             'donations': user_donations,
         }
         return render(request, template_name='user-detail.html', context=ctx)
