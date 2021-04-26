@@ -24,4 +24,6 @@ urlpatterns = [
     path('form/', Charity_Views.AddDonation.as_view(), name='form'),
     path('login/', Charity_Views.Login.as_view(), name='login'),
     path('register/', Charity_Views.Register.as_view(), name='register'),
+    path('logout/', Charity_Views.logout_view, name='logout'),
+    path('profile/<int:pk>/', Charity_Views.UserDetail.as_view(), name='profile'),
 ]
