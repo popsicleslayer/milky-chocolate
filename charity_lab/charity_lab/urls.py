@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Charity_Views.LandingPage.as_view(), name='main'),
     path('form/', Charity_Views.AddDonation.as_view(), name='form'),
+    path('form-success/', Charity_Views.SuccessPage.as_view(), name='success'),
     path('login/', Charity_Views.Login.as_view(), name='login'),
     path('register/', Charity_Views.Register.as_view(), name='register'),
     path('logout/', Charity_Views.logout_view, name='logout'),
