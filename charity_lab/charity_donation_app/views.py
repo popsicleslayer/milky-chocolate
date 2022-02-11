@@ -53,6 +53,21 @@ class AddDonation(LoginRequiredMixin, View):
         }
         return render(request, template_name='form.html', context=ctx)
 
+    def post(self, request, *args, **kwargs):
+        return render(request, template_name='form.html')
+
+
+class SuccessPage(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            user_name =self.request.user.first_name
+        else:
+            user_name = None
+        ctx = {
+            'user_name': user_name,
+        }
+        return render(request, template_name='form-confirmation.html', context=ctx)
+
 
 class Login(View):
     """
